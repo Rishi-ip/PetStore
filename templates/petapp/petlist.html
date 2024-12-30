@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'petapp/Header.html'%}
+    <table border="1">
+        <caption>Petdetails</caption>
+        <tr>
+            <th>pid</th>
+            <th>petname</th>
+            <th>petgender</th>   
+            <th>petspecies</th>
+            <th>petage</th>
+            <th>petdescription</th>
+            <th>petprice</th>
+            <th>petis_activate</th>
+          {% if request.session.username is None and request.session.adminemailid is not None %}
+
+            <th colspan="2">Action</th>
+            
+            <th>Action</th>
+        </tr>
+        {% for p in pet %}
+        <tr>
+            <td>{{p.pid}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.gender}}</td>
+            <td>{{p.species}}</td>
+            <td>{{p.age}}</td>
+            <td>{{p.description}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.is_activate}}</td>
+            <td><img src="/{{p.pet_image}}"></td>
+
+            <td><a href="edit/{{p.pid}}">edit</a></td>
+            <td><a href="delete/{{p.pid}}">delete</a></td>
+            <td><a href="addcart/{{p.pid}}">AddCart</a></td>
+        </tr>
+            {% endfor %}
+    </table>
+    {% include 'petapp/Footer.html'%}
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'petapp/Header.html'%}
+    <table border="1">
+        <caption>customer details</caption>
+        <tr>
+            <th>emailId</th>
+            <th>custname</th>
+            <th>password</th>
+            <th>address</th>
+            <th>contact_No</th>
+            <th colspan="2">Action</th>
+            <th>Action</th>
+             
+        </tr>
+        {% for c in customer %}
+        <tr>
+            <td>{{c.emailId}}</td>
+            <td>{{c.custname}}</td>
+            <td>{{c.password}}</td>
+            <td>{{c.address}}</td>
+            <td>{{c.contact_No}}</td>
+            <td><a href="edit/{{c.emailId}}">edit</a></td>
+            <td><a href="delete/{{c.emailId}}">delete</a></td>
+            <td><a href="addcart/{{p.pid}}">AddCart</a></td>
+             
+        </tr>
+            {% endfor %}
+    </table>
+    {% include 'petapp/Footer.html'%}
+</body>
+</html>

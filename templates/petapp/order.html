@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'petapp/Header.html'%}
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <input type="text" name="name" placeholder="Enter the Name"><br>
+        <input type="text" name="address" placeholder="Enter the address"><br>
+        <input type="text" name="city" placeholder="Enter the city"><br>
+        <input type="text" name="state" placeholder="Enter the state"><br>
+        <input type="text" name="pincode" placeholder="Enter the pincode"><br>
+        <input type="text" name="phoneno" placeholder="Enter the phoneno"><br>
+        
+        <input type="submit" value="placeorder">
+    </form>
+    {% include 'petapp/Footer.html'%}
+</body>
+</html>

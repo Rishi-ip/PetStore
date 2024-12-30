@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'petapp/Header.html'%}
+    <form action="{% url 'update' %}" method="POST">
+        {% csrf_token %}
+
+        <table border="2" cellspacoing="6" cellpadding="6">
+            <h1>update pet</h1>
+
+            <tr>
+                <td>
+                    <label for="">petid</label>
+                </td>
+                <td>
+                    <input type="text" name="petid" value="{{pet.pid}}">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <label for="">name</label>
+                </td>
+                <td>
+                    <input type="text" name="name" value="{{pet.name}}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="">species</label>
+                </td>
+                <td>
+                    <input type="text" name="species" value="{{pet.species}}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="">age</label>
+                </td>
+                <td>
+                    <input type="text" name="age" value="{{pet.age}}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="">gender</label>
+                </td>
+                <td>
+                    <input type="radio" name="choice" value="male" { % if pet.gender =='Male' % } checked { % endif % }> Male:
+                    <input type="radio" name="choice" value="female"{ % if pet.gender =='Female' % } checked { % endif % }>Female:
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="">description</label>
+                </td>
+                <td>
+                    <input type="text" name="description" value="{{pet.description}}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="">price</label>
+                </td>
+                <td>
+                    <input type="text" name="price" value="{{pet.price}}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="">is_activate</label>
+                </td>
+                <td>
+                    <input type="radio" name="is_activate" value="True">True
+                    <input type="radio" name="is_activate" value="False">False
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="submit">
+                    <input type="reset" value="clear">
+                </td>
+            </tr>
+            {% include 'petapp/Footer.html'%}
+
+</body>
+</html>

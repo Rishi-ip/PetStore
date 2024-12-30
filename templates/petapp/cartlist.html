@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'petapp/Header.html'%}
+    <form action="placeorder">
+        {% csrf_token %}
+    
+    <table border="1">
+        <tr> 
+            <th>emailId</th>
+            <th>product pid</th>
+            <th>product gender</th>
+            <th>product name</th>   
+            <th>product species</th>
+            <th>product age</th>
+            <!-- <th>product gender</th> -->
+            <th>product description</th>
+            <th>product price</th>
+            <th>product is_activate</th>
+            <th>product pet_image</th>
+            <th>product qunatity</th>
+            <th>product totalprice</th>
+        </tr>
+        {% for i in cart %}
+        <tr>
+            <td>{{i.cust_obj.emailId}}</td>
+            <td>{{i.pet_obj.pid}}</td>
+            <td>{{i.pet_obj.gender}}</td>
+            <td>{{i.pet_obj.name}}</td>
+            <td>{{i.pet_obj.species}}</td>
+            <td>{{i.pet_obj.age}}</td>
+            <td>{{i.pet_obj.description}}</td>
+            <td>{{i.pet_obj.price}}</td>
+            <td>{{i.pet_obj.is_activate}}</td>
+         
+            <td><img src="/{{i.pet_obj.pet_image}}"></td>
+
+            <td>{{i.quantity}}</td>
+            <td>{{i.totalprice}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <input type="submit" value="showorder">
+</form>
+
+{% include 'petapp/Footer.html'%}
+</body>
+</html>

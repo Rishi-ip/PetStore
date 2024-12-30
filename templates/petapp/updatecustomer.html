@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+     {% load static %}
+     
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'petapp/Header.html'%}
+    <form action="{% url 'update' %}" method="POST">
+        {% csrf_token %}
+
+        <table border="2" cellspacoing="6" cellpadding="6">
+            <h1>update customer</h1>
+
+            <tr>
+                <td>
+                    <label for="">emailId</label>
+                </td>
+                <td>
+                    <input type="text" name="emailId" value="{{customer.emailId}}">
+                </td>
+            </tr>
+
+            
+            <tr>
+                <td>
+                    <label for="">custname</label>
+                </td>
+                <td>
+                    <input type="text" name="custname" value="{{customer.custname}}">
+                </td>
+            </tr>
+
+            
+            <tr>
+                <td>
+                    <label for="">password</label>
+                </td>
+                <td>
+                    <input type="text" name="password" value="{{customer.password}}">
+                </td>
+            </tr>
+
+            
+            <tr>
+                <td>
+                    <label for="">address</label>
+                </td>
+                <td>
+                    <input type="text" name="address" value="{{customer.address}}">
+                </td>
+            </tr>
+
+            
+            <tr>
+                <td>
+                    <label for="">contact_No</label>
+                </td>
+                <td>
+                    <input type="number" name="contact_No" value="{{customer.contact_No}}">
+                </td>
+            </tr>
+
+            
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="update">
+                    <input type="reset" value="clear">
+                </td>
+            </tr>
+        </table>
+    </form>
+    {% include 'petapp/Footer.html'%}
+</body>
+</html>

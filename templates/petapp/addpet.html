@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% include 'petapp/Header.html'%}
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <table border="2" cellspacoing="6" cellpadding="6">
+            <h1>pet store</h1>
+
+            
+            <tr>
+                <td>
+                    <label for="">gender</label>
+                </td>
+                <td>
+                    <input type="radio" name="choice" value="male">Male:
+                    <input type="radio" name="choice" value="female">Female:
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">name</label>
+                </td>
+                <td>
+                    <input type="text" name="name">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="">species</label>
+                </td>
+                <td>
+                    <input type="text" name="species">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="">age</label>
+                </td>
+                <td>
+                    <input type="text" name="age">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <label for="">description</label>
+                </td>
+                <td>
+                    <input type="text" name="description">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="">price</label>
+                </td>
+                <td>
+                    <input type="text" name="price">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="">is_activate</label>
+                </td>
+                <td>
+                    <input type="radio" name="is_activate" value="True">True
+                    <input type="radio" name="is_activate" value="False">False
+                </td>
+            </tr>
+            <tr>
+                <td><input type="file" name="Images"></td>  
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="submit">
+                    <input type="reset" value="clear">
+                </td>
+            </tr>
+           
+           
+        </table>
+    </form>
+    {% include 'petapp/Footer.html'%}
+</body>
+</html>
